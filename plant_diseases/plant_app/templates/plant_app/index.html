@@ -1,0 +1,1374 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "plant_app/style.css" %}">
+<link rel="stylesheet" href="{% static "plant_app/bootstrap.min.css" %}">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+    
+      
+    </style>
+
+
+    <title>Plant Diseases</title>
+  </head>
+  <body  style="
+      background-image: linear-gradient(rgba(0,0,0,0.527),rgba(0,0,0,0.5)),url('https://i.ibb.co/DCVrXwk/bg.webp');
+      height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:0%;
+  background-attachment:fixed;
+ ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="./index.php">CROP Solution</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="http://localhost/agri/agri/Plant-Diseases-Recognition/plant_diseases/plant_app/templates/plant_app/afterlogin.php">Home</a>
+              </li>
+              
+              
+              
+          </ul>
+          </div>
+      </div>
+      </nav>
+
+
+
+
+     
+    <div  class='container'>
+      <br/>
+      <header style="background:none">
+          <h1 style="
+            color:white;
+            font-size: 400%;
+          "><strong>Plant Diseases Detection</h1>
+            
+      </header>
+        <p></p>
+    <form method="post" id="fileform" enctype="multipart/form-data" style="width:60%;float:left;margin-top:100px">
+    {% csrf_token %}
+    <div class="file-upload">
+      <div class="file-select" style="border-radius: 10px;">
+          <div class="file-select-button" id="fileName">Choose File</div>
+        <div class="file-select-name" id="noFile"  >No file chosen...</div>
+        <input id="chooseFile" type="file" name="myfile">
+      </div>
+    </div>
+    <br/>
+    <button id="sub" class="btn btn-success btn-lg" type="submit" style="margin-left:40%">Predict</button>
+  </form>
+
+<div >
+  <img src="https://i.ibb.co/8r8dwG4/mint-leaf-cartoon-vector-icon-cartoon-vector-illustration-fresh-peppermint-isolated-illustration-min.jpg" style="width: 300px;height: 300px;border-radius: 100%;">
+  {% if file_url %}
+  <img src="data:image/png;base64,{{file_url}}" style="width: 300px;height: 300px;border-radius: 100%; margin-top: -300px ;
+  margin-left: 60%;">
+  <h1 id='filename' style="width:40%;float:right ;color:white"><strong>Disease : {{ result }}</h1>
+
+
+    {% if result == "Apple scab " %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Apple Scab :</h3>
+       <h5>Apple scab is the most common disease of apple and crabapple trees in Minnesota.
+        Scab is caused by a fungus that infects both leaves and fruit.
+        Scabby fruit are often unfit for eating.
+        Infected leaves have olive green to brown spots.
+        Leaves with many leaf spots turn yellow and fall off early.
+        Leaf loss weakens the tree when it occurs many years in a row.
+        Planting disease resistant varieties is the best way to manage scab.
+        Fungicides can be used to manage apple scab. Proper timing of sprays is needed for fungicides to control disease.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Instead, fungicide application must begin in early spring from apple green tip, and continue on a 7- to 10-day schedule (7 days during wet weather, 10 days if dry) until petal fall. If dry weather persists after petal fall, a 10- to 14-day spray schedule is adequate for scab control. 
+    
+    </h5>
+
+    <img src="https://www.getuscart.com/images/thumbs/0451111_bo…cticidepesticide-concentrate-8-oz-browna_100.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://www.getuscart.com/bonide-bnd857-pyrethrin-garden-insect-spray-mix-outdoor-insecticidepesticide-concentrate-8-oz-browna?gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UpzwSKS0wZn34BHnWT7PqgzkVZZ-XI90BHSYEyyuWxdKCbqJ5mmQkaAjPbEALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+
+    {% if result == "Apple Black rot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Black rot :</h3>
+       <h5>Black rot of crucifers is caused by Xanthomonas campestris pv. campestris. The disease is present throughout the world. It affects all members of the crucifer family and often causes severe losses. The disease affects primarily the aboveground parts of plants of any age. In hosts such as turnip and radish, however, the fleshy roots may also be affected and may develop a dry rot. Infected young seedlings show dwarfing, one-sided growth, and their lower leaves droop. 
+
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Mancozeb, and Ziram are all highly effective against black rot. Because these fungicides are strictly protectants, they must be applied before the fungus infects or enters the plant. They protect fruit and foliage by preventing spore germination.
+
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/51d7bbab24acd5e28149acfd0201f8d9-03-30-21-12-29-10.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+    {% endif %}
+
+    {% if result == "Apple Cedar apple rust" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Cedar apple rust :</h3>
+       <h5>Cedar apple rust (Gymnosporangium juniperi-virginianae) is a fungal disease that requires juniper plants to complete its complicated two year life-cycle. Spores overwinter as a reddish-brown gall on young twigs of various juniper species. In early spring, during wet weather, these galls swell and bright orange masses of spores are blown by the wind where they infect susceptible apple and crab-apple trees.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Fungicides with the active ingredient Myclobutanil are most effective in preventing rust. ...
+        Fungicides are only effective if applied before leaf spots or fruit infection appear.
+        Spray trees and shrubs when flower buds first emerge until spring weather becomes consistently warm and dry.
+        Monitor nearby junipers.
+
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/51d7bbab24acd5e28149acfd0201f8d9-03-30-21-12-29-10.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Apple Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Blueberry Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Cherry Powdery mildew" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Powdery_mildew :</h3>
+       <h5>Powdery mildew is one of the most widespread and easily recognized plant diseases.
+        Powdery mildews are characterized by spots or patches of white to grayish, talcum-powder-like growth.
+        Powdery mildews are severe in warm, dry climates.
+        Many plants have been developed to be resistant or tolerant to powdery mildew.
+        Succulent tissue is more susceptible to infection. Once the disease is a problem, avoid late summer applications of nitrogen fertilizer.
+        Plant resistant varieties if available.
+        Chemicals are most effective when combined with cultural controls.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Controlling Powdery Mildew With Baking Soda
+
+        At the first signs of infection on a plant, remove the leaves that are infected with powdery mildew, if there aren't too many, and spray the rest of the plant. Spray any susceptible plants located nearby, too.
+
+    </h5>
+
+    <img src="https://smhttp-ssl-60515.nexcesscdn.net/media/cata…08d6e5fb8d27136e95/p/a/patch_pro_grn_shadow2.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+    {% endif %}
+
+    {% if result == "Cherry Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Corn Cercospora leaf spot Gray leaf spot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Cercospora leaf spot Gray leaf spot :</h3>
+       <h5>Grey leaf spot (GLS) is a foliar fungal disease that affects maize, also known as corn. GLS is considered one of the most significant yield-limiting diseases of corn worldwide. There are two fungal pathogens that cause GLS: Cercospora zeae-maydis and Cercospora zeina. Symptoms seen on corn include leaf lesions, discoloration (chlorosis), and foliar blight. Distinct symptoms of GLS are rectangular, brown to gray necrotic lesions that run parallel to the leaf, spanning the spaces between the secondary leaf veins.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:20px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There are some fungicides available to help manage Cercospora leaf spot. Products containing chlorothalonil, myclobutanil or thiophanate-methyl are most effective when applied prior to or at the first sign of leaf spots.
+        
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/a/sayaka_1.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+
+    
+    {% endif %}
+
+    {% if result == "Corn Common rust" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Common rust :</h3>
+       <h5>Common rust produces rust-colored to dark brown, elongated pustules on both leaf surfaces. The pustules contain rust spores (urediniospores) that are cinnamon brown in color. Pustules darken as they age. Leaves, as well as sheaths, can be infected. Under severe conditions leaf chlorosis and death may occur. Common rust can be differentiated from Southern rust by the brown pustules occurring on both top and bottom leaf surfaces with common rust.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There are several fungicides that can be used to protect plants from infection. Mancozeb as a protectant and myclobutanil as an eradicant are generally effective against all rusts while triadimefon is effective against only specific rusts.
+        Use a mild bleach solution, and rinse and dry them thoroughly before putting them away. Rake up and remove fallen or dead leaves and other plant debris. Some gardeners compost vegetation that show signs of rust, expecting the compost pile to heat up enough to kill the spores.
+
+    </h5>
+
+    <img src="https://smhttp-ssl-60515.nexcesscdn.net/media/cata…08d6e5fb8d27136e95/p/a/patch_pro_grn_shadow2.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+    {% endif %}
+
+    {% if result == "Corn Northern Leaf Blight" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Northern Leaf Blight :</h3>
+       <h5>
+        Northern corn leaf blight (NCLB), caused by the fungus Exserohilum turcicum, is one of the most frequently occurring foliar diseases of corn in Ohio and the Midwest in general. Since the early 2000s, both the prevalence and severity of this disease have increased, but in most years plants only becomes severely diseased well after silking. During wet weather yield losses may be as high as 30-50% if the disease becomes establishes before tasseling. However, if leaf damage is only moderate or is delayed until 6 weeks after silking, yield losses are minimal.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Treating northern corn leaf blight involves using fungicides. For most home gardeners this step isn't needed, but if you have a bad infection, you may want to try this chemical treatment. The infection usually begins around the time of silking, and this is when the fungicide should be applied.
+
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/a/sayaka_1.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Corn Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+
+    {% if result == "Grape Black rot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Black rot :</h3>
+       <h5>
+         Black rot of crucifers is caused by Xanthomonas campestris pv. campestris. The disease is present throughout the world. It affects all members of the crucifer family and often causes severe losses. The disease affects primarily the aboveground parts of plants of any age. In hosts such as turnip and radish, however, the fleshy roots may also be affected and may develop a dry rot. Infected young seedlings show dwarfing, one-sided growth, and their lower leaves droop. 
+
+       </h5>
+       <br>
+    </div>
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Mancozeb, and Ziram are all highly effective against black rot. Because these fungicides are strictly protectants, they must be applied before the fungus infects or enters the plant. They protect fruit and foliage by preventing spore germination.
+
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/51d7bbab24acd5e28149acfd0201f8d9-03-30-21-12-29-10.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+    {% endif %}
+
+    {% if result == "Grape Esca (Black Measles)" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Esca :</h3>
+       <h5>
+        Black Measles, also called esca, black measles or Spanish measles, has long plagued grape growers with its cryptic expression of symptoms and, for a long time, a lack of identifiable causal organism(s). The name ‘measles’ refers to the superficial spots found on the fruit
+       </h5>
+       <br>
+    </div>
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Presently, there are no effective management strategies for measles. Wine grape growers with small vineyards will often have field crews remove infected fruit prior to harvest. Raisins affected by measles will be discarded during harvest or at the packing house, while table grape growers will leave affected fruit on the vine
+    
+    
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Grape Leaf blight (Isariopsis Leaf Spot)" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Leaf blight (Isariopsis Leaf Spot) :</h3>
+       <h5>
+        On leaf surface we will see lesions which are irregularly shaped (2 to 25 mm in diameter). Initially lesions are dull red to brown in color turn black later. If disease is severe this lesions may coalesce. On berries we can see symptom similar to black rot but the entire clusters will collapse.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">You can try a more traditional treatment by spraying with a mild solution of bicarbonate of soda (baking soda), using ½ teaspoon per gallon (2.5 mL. per 4 L.) of water. For those gardeners who have no objection, many all-purpose fungicides are available.
+
+
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Grape healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+
+    {% endif %}
+
+    {% if result == "Orange Haunglongbing (Citrus greening)" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Haunglongbing (Citrus greening) :</h3>
+       <h5>
+        Huanglongbing (HLB), also known as citrus greening, is the most serious disease of citrus. The disease is spread by the Asian citrus psyllid (Diaphorina citri) (ACP), which has been present in Florida since 1998. ACP transmits the bacteria to the tree when feeding on new shoots. There is no cure for this disease and all commercial varieties of citrus are susceptible to HLB.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">The systemic insecticide imidacloprid (Bayer Advanced Fruit, Citrus & Vegetable and other products) is available for use as a soil drench, which moves through the roots to the growing tissues of the plant. This systemic insecticide provides good control of the nymphs for 1 to 2 months
+
+        
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/h/shoku_1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Peach Bacterial spot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Bacterial spot :</h3>
+       <h5>Bacterial spot is the most destructive leaf disease of capsicum. Black rot of brassica plants often follows infection by bacterial spot.
+        The first symptoms are usually small, yellow V-shaped areas developing along the leaf margin. These areas soon turn brown and dry out. Vein blackening may extend down the leaves into the petiole and the stem. When the stem is cut across, a black ring will be seen in the water-conducting tissues just below the bark.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There are no cures for systemically infected plants and these plants should be discarded.
+        Individual leaves with spots can be picked off and destroyed.
+        Any method that will lower the humidity, decrease leaf wetness or increase air circulation will help to lessen the chances of infection.       
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/h/shoku_1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Peach Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant:</h3>
+       <h5>Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Pepper , bell Bacterial_spot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Bacterial spot :</h3>
+       <h5>
+        Bacterial spot is the most destructive leaf disease of capsicum. Black rot of brassica plants often follows infection by bacterial spot.
+        The first symptoms are usually small, yellow V-shaped areas developing along the leaf margin. These areas soon turn brown and dry out. Vein blackening may extend down the leaves into the petiole and the stem. When the stem is cut across, a black ring will be seen in the water-conducting tissues just below the bark.
+       
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There are no cures for systemically infected plants and these plants should be discarded.
+        Individual leaves with spots can be picked off and destroyed.
+        Any method that will lower the humidity, decrease leaf wetness or increase air circulation will help to lessen the chances of infection.       
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/h/shoku_1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Pepper , bell Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+        
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+
+    {% if result == "Potato Early blight" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Early blight :</h3>
+       <h5>
+        Early blight is primarily a disease of stressed or senescing plants. Symptoms appear first on the oldest foliage. Affected leaves develop circular to angular dark brown lesions 0.12 to 0.16 inch (3–4 mm) in diameter. Concentric rings often form in lesions to produce characteristic target-board effect. Severely infected leaves turn yellow and drop. Infected tubers show a brown, corky dry rot.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Tomatoes that have early blight require immediate attention before the disease takes over the plants. Thoroughly spray the plant (bottoms of leaves also) with Bonide Liquid Copper Fungicide concentrate or Bonide Tomato & Vegetable. Both of these treatments are organic.
+
+
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Potato Late blight" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Late blight :</h3>
+       <h5>
+        Late blight is one of the most serious diseases of potatoes and tomatoes worldwide, resulting in significant yield and quality losses annually. In general, in Alberta, Late blight occurs infrequently, but can have devastating impacts in the years when it reaches epidemic levels.
+        Late blight was responsible, in large part, for the Irish Potato Famine in the 1840's, which resulted in the death and mass emigration of millions of people. Each year, Late blight reduces the yields of potatoes and tomatoes in the field and can cause major losses in potato tubers in storage.
+      </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">The severe late blight can be effectively managed with prophylactic spray of mancozeb at 0.25% followed by cymoxanil+mancozeb or dimethomorph+mancozeb at 0.3% at the onset of disease and one more spray of mancozeb at 0.25% seven days after application of systemic fungicides in West Bengal
+           
+
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Potato Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+         
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Raspberry Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+        
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Soyabean Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant:</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+        
+       </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Squash Powdery mildew" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About 'Powdery mildew :</h3>
+       <h5>
+        Powdery mildew is one of the most widespread and easily recognized plant diseases.
+        Powdery mildews are characterized by spots or patches of white to grayish, talcum-powder-like growth.
+        Powdery mildews are severe in warm, dry climates.
+        Many plants have been developed to be resistant or tolerant to powdery mildew.
+        Succulent tissue is more susceptible to infection. Once the disease is a problem, avoid late summer applications of nitrogen fertilizer.
+        Plant resistant varieties if available.
+        Chemicals are most effective when combined with cultural controls.
+        
+       </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Strawberry Leaf scorch" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Leaf scorch :</h3>
+       <h5>
+        Leaf scorch is a physiological disorder that presents as discolored tissues on the margins and sometimes between the veins of tree and shrub leaves. In severe cases the whole leaf turns brown, shrivels up and drops off. Leaf scorch is, in fact, a reaction to an unfavorable environment. Though there might be multiple reasons for this condition, scorch is most often a direct result of an inadequate water supply.
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:20px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There is no treatment or bacterial leaf scorch control for this disease, but there are some cultural steps that can be made to ensure a beautiful tree for the last few years of its life. Bacterial leaf scorch is caused by Xylella fastidiosa, a bacterium that is spreading across.
+
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/a/sayaka_1.jpeg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Strawberry Healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+        
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">9 Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato BacterialSpot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Bacterial Spot :</h3>
+       <h5>
+        Bacterial spot is the most destructive leaf disease of capsicum. Black rot of brassica plants often follows infection by bacterial spot.
+        The first symptoms are usually small, yellow V-shaped areas developing along the leaf margin. These areas soon turn brown and dry out. Vein blackening may extend down the leaves into the petiole and the stem. When the stem is cut across, a black ring will be seen in the water-conducting tissues just below the bark.
+       
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">There are no cures for systemically infected plants and these plants should be discarded.
+        Individual leaves with spots can be picked off and destroyed.
+        Any method that will lower the humidity, decrease leaf wetness or increase air circulation will help to lessen the chances of infection.       
+    </h5>
+
+    <img src="https://cdn-prodapi.iffcobazar.in/pub/media/catalog/product/s/h/shoku_1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato EarlyBlight" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Early Blight :</h3>
+       <h5>
+        Early blight is primarily a disease of stressed or senescing plants. Symptoms appear first on the oldest foliage. Affected leaves develop circular to angular dark brown lesions 0.12 to 0.16 inch (3–4 mm) in diameter. Concentric rings often form in lesions to produce characteristic target-board effect. Severely infected leaves turn yellow and drop. Infected tubers show a brown, corky dry rot.
+       
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Tomatoes that have early blight require immediate attention before the disease takes over the plants. Thoroughly spray the plant (bottoms of leaves also) with Bonide Liquid Copper Fungicide concentrate or Bonide Tomato & Vegetable. Both of these treatments are organic.
+        
+
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Late blight1" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Late blight:</h3>
+       <h5>
+        Late blight is one of the most serious diseases of potatoes and tomatoes worldwide, resulting in significant yield and quality losses annually. In general, in Alberta, Late blight occurs infrequently, but can have devastating impacts in the years when it reaches epidemic levels.
+        Late blight was responsible, in large part, for the Irish Potato Famine in the 1840's, which resulted in the death and mass emigration of millions of people. Each year, Late blight reduces the yields of potatoes and tomatoes in the field and can cause major losses in potato tubers in storage.
+      
+       </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">The severe late blight can be effectively managed with prophylactic spray of mancozeb at 0.25% followed by cymoxanil+mancozeb or dimethomorph+mancozeb at 0.3% at the onset of disease and one more spray of mancozeb at 0.25% seven days after application of systemic fungicides in West Bengal
+
+
+    </h5>
+
+    <img src="https://plantic.in/image/total-plant-care1.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/products/total-plant-care-three-in-one?source=google&medium=cpc&campaignid=16514436694&adgroupid=&keyword=&matchtype=&device=c&gclid=Cj0KCQjwgMqSBhDCARIsAIIVN1UxLr1yADFzNM7og-TPVj1fKiwus_YGLRvl0yzTdccRrTCyUJfaEMYaAvYREALw_wcB"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Leaf Mold" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Leaf Mold :</h3>
+       <h5>
+        Leaf mold results from letting leaves sit and decompose over time. It is dark brown to black and has a pleasant earthy aroma and a crumbly texture, much like compost. In fact, leaf mold is just that: ​composted leaves. Instead of adding a bunch of organic matter to a pile, you only use leaves.
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Septoria leaf spot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Septoria leaf spot :</h3>
+       <h5>
+        Septoria leaf spot is caused by the fungus Septoria lycopersici. This fungus can attack tomatoes at any stage of development, but symptoms usually first appear on the older, lower leaves and stems when plants are setting fruit. Symptoms usually appear on leaves, but can occur on petioles, stems, and the calyx.
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Spider mites Two-spotted_spider_mite" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Spider mites :</h3>
+       <h5>
+        Twospotted spider mites, Tetranychus urticae, are tiny, oval,eight legged creatures about 0.4mm long. They characteristically have two (sometimes four) dark spots on the back. They are typically yellow or greenish amber but, overwintering females are red to orange.
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato TargetSpot" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Target Spot :</h3>
+       <h5>
+        Target spot (or early blight) is one of the most common diseases attacking leaves and stems of potatoes. It usually spreads during autumn and is welcomed by some growers as a haulm killer. But it can cause losses if outbreaks occur early in the season, or in late maturing crops.
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Yellow Leaf Curl Virus" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Yellow Leaf Curl Virus :</h3>
+       <h5>
+        Tomato yellow leaf curl virus (TYLCV) is a DNA virus from the genus Begomovirus and the family Geminiviridae. TYLCV causes the most destructive disease of tomato, and it can be found in tropical and subtropical regions causing severe economic losses. This virus is transmitted by an insect vector from the family Aleyrodidae and order Hemiptera, the whitefly Bemisia tabaci, commonly known as the silverleaf whitefly or the sweet potato whitefly. The primary host for TYLCV is the tomato plant, and other plant hosts where TYLCV infection has been found include eggplants, potatoes, tobacco, beans, and peppers
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato Mosaic virus" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Mosaic virus :</h3>
+       <h5>
+        A mosaic virus is any virus that causes infected plant foliage to have a mottled appearance. Such viruses come from a variety of unrelated lineages and consequently there is no taxon that unites all mosaic viruses
+        </h5>
+       <br>
+    </div>
+    {% endif %}
+
+    {% if result == "Tomato healthy" %}
+    <div style="color: white;
+    float: left;
+    margin-top: 30px;">
+      <h3>About Healthy plant :</h3>
+       <h5>
+        Healthy plants have firm leaves, well-formed flowers and fruit, and well-developed root systems.
+        Unhealthy plants show damage to leaves, stems, roots, flowers or fruit.
+        A pest is an animal that damages plants.
+        Disease is caused by bacteria, fungi, and viruses.
+        
+        </h5>
+       <br>
+    </div>
+
+    <div style="color: black;
+    background-color: white;
+    float: left;
+    padding:10px;
+    border-radius: 20px;
+    margin-bottom:20px;
+    margin-top: 30px;
+    ">
+      <h3>Treatment :</h3>
+      <div style="display:flex">
+       <h5 style="width:80%">Essential Tips for Growing a Successful Crop
+        Healthy Soil. It all begins with soil. ...
+        Good Bed Preparation. If you plan to till, do not till when it is too wet. ...
+        Fresh Seed. ...
+        The Right Variety. ...
+        Healthy Transplant. ...
+        Proper Establishment. ...
+        Pest Protection. ...
+        Good Moisture.
+        
+    </h5>
+
+    <img src="https://agribegri.com/admin/images/prod_image/8e21ca3542a049420b42d17fdc1d8080-02-01-21-12-13-45.jpg" style="width:200px;float:right"></div>
+
+    <div class="container col-12">
+      <a href="https://plantic.in/"><button class="btn btn-block bg-success text-light">Buy Now</button></a>
+    </div>
+    </div>
+    {% endif %}
+
+    
+
+
+  {% endif %}
+
+</div>
+</br>
+</br>
+</br>
+</br>
+
+    </div>
+    <br/>
+    <br/>
+  </body>
+  <script type="text/javascript" src="{% static 'plant_app/jQuery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'plant_app/effect.js' %}"></script>
+</html>
